@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ноч аленяў</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="https://pikey.tech/animation/logo-apb.png" type="image/x-icon">
+    <style>
+        *,
+        *::before,
+        *::after,
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-size: 1px;
+        }
+        
+        .info::before {
+            position: absolute;
+            content: '';
+            background-image: url(https://pikey.tech/animation/olen.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 300rem;
+            height: 300rem;
+            bottom: 100%;
+            right: 0;
+        }
+        
+        .steam.on span {
+            animation: smoke 2s 4;
+            animation-delay: .5s;
+            opacity: 1;
+            animation-fill-mode: forwards;
+        }
+        
+        .btn:hover {
+            box-shadow: 0 0 20px #fff;
+        }
+        
+        @keyframes smoke {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+        
+        @media(max-width: 400px) {
+            .poster {
+                width: 100vw !important;
+            }
+            .main {
+                height: 100vh !important;
+            }
+            .title {
+                margin-top: 20rem !important;
+            }
+            .btn {
+                width: 75rem !important;
+                height: 44rem !important;
+            }
+            .text {
+                margin-left: 50rem !important;
+                line-height: 21rem;
+            }
+            .info::before {
+                width: 250rem !important;
+                height: 250rem !important;
+                right: -56px !important;
+            }
+            .footer {
+                flex-direction: column-reverse;
+                padding-top: 5rem !important;
+            }
+            .date {
+                margin-bottom: 5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="poster" style="width: 500rem; margin: 0 auto; height: 800rem; background-image: url(https://pikey.tech/animation/bg.jpg); background-repeat: no-repeat;
+    background-position: center; background-size: cover; text-transform: uppercase;
+    font-family: 'Comfortaa', cursive; font-weight: 700; color: #80a09f; display: flex;
+    flex-direction: column; justify-content: space-between; overflow: hidden;">
+        <div class="main" style="height: 100%; padding: 0 10rem; display: flex; justify-content: space-between; flex-direction: column;">
+            <div class="title" style="text-align: center; margin-top: 40rem;">
+                <h1 style="font-size: 60rem;">Ноч аленяў</h1>
+                <h2 style="font-size: 30rem; margin-top: 10rem;">у Белавежскай пушчы</h2>
+            </div>
+            <div class="steam" id="steam" style="width: 300rem; height: 300rem; opacity: 0.1; z-index: 1;">
+                <span><img src="https://pikey.tech/animation/steam.png" width="300" height="300" alt="steam" ></span>
+            </div>
+            <div class="info" style="position: relative; display: flex; justify-content: space-between; align-items: center; padding: 0 10rem;">
+                <button class="btn" style="width: 30rem; height: 30rem; border: none;
+                border-radius: 50%; background-color: transparent; background-image: url(https://pikey.tech/animation/sound.png); background-repeat: no-repeat; background-size: cover;">
+                    </button>
+                <div class="text">
+                    <p style="font-size: 15rem; margin-bottom: 10rem;">лекцыi ад найлепшых аленязнаўцаў краiны</p>
+                    <p style="font-size: 15rem; margin-bottom: 10rem;">навучанне рову аленяў</p>
+                    <p style="font-size: 15rem; margin-bottom: 10rem;">экскурсiя ў лес на канцэрт аленяў-равуноў</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer" style="background-color: #80a09f; display: flex; justify-content: space-between; align-items: center; padding: 10rem 20rem;">
+            <div class="frinds">
+                <a href="https://ptushki.org/"><img src="https://pikey.tech/animation/logo-apb.png" width="60" height="60" alt="logo"></a>
+                <a href="https://npbp.by/"><img src="https://pikey.tech/animation/logo-bp.png" width="60" height="60" alt="logo" style="margin: 0 10rem;"></a>
+                <a href="https://fzs.org/"><img src="https://pikey.tech/animation/logo-fzs.png" width="70" height="60" alt="logo"></a>
+            </div>
+            <div class="date" style="color: #000;  font-size: 35rem;">25 верасня</div>
+        </div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            $(".btn").on('click', function() {
+                $(".steam").addClass("on").delay(6000).queue(function() {
+                    $(this).removeClass("on").dequeue();
+                })
+                var sound = document.createElement("audio");
+                sound.src = "https://pikey.tech/animation/sound.mp3";
+                sound.play();
+            })
+        })
+    </script>
+</body>
+
+</html>
